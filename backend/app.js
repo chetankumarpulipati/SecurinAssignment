@@ -105,7 +105,12 @@ app.get('/api/recipes', async (req, res) => {
           total_time: 1,
           description: 1,
           nutrients: 1,
-          serves: 1
+          serves: 1,
+          continent: 1,
+          country_state: 1,
+          url: 1,
+          ingredients: 1,
+          instructions: 1
         }
       }
     ]);
@@ -236,7 +241,12 @@ app.get('/api/recipes/search', async (req, res) => {
         total_time: 1,
         description: 1,
         nutrients: 1,
-        serves: 1
+        serves: 1,
+        continent: 1,
+        country_state: 1,
+        url: 1,
+        ingredients: 1,
+        instructions: 1
       }
     });
 

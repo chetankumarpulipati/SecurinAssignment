@@ -423,6 +423,46 @@ function App() {
                 </Typography>
               </Box>
 
+              {/* Ingredients Section */}
+              <Box sx={{ mb: 3 }}>
+                <Typography variant="h6" gutterBottom>
+                  Ingredients:
+                </Typography>
+                {selectedRecipe.ingredients && selectedRecipe.ingredients.length > 0 ? (
+                  <Box component="ul" sx={{ pl: 2, mt: 1 }}>
+                    {selectedRecipe.ingredients.map((ingredient, index) => (
+                      <Typography component="li" variant="body2" key={index} sx={{ mb: 0.5 }}>
+                        {ingredient}
+                      </Typography>
+                    ))}
+                  </Box>
+                ) : (
+                  <Typography variant="body2" color="text.secondary">
+                    No ingredients information available
+                  </Typography>
+                )}
+              </Box>
+
+              {/* Instructions Section */}
+              <Box sx={{ mb: 3 }}>
+                <Typography variant="h6" gutterBottom>
+                  Instructions:
+                </Typography>
+                {selectedRecipe.instructions && selectedRecipe.instructions.length > 0 ? (
+                  <Box component="ol" sx={{ pl: 2, mt: 1 }}>
+                    {selectedRecipe.instructions.map((instruction, index) => (
+                      <Typography component="li" variant="body2" key={index} sx={{ mb: 1 }}>
+                        {instruction}
+                      </Typography>
+                    ))}
+                  </Box>
+                ) : (
+                  <Typography variant="body2" color="text.secondary">
+                    No instructions available
+                  </Typography>
+                )}
+              </Box>
+
               {/* Time Information */}
               <Box sx={{ mb: 3 }}>
                 <Box

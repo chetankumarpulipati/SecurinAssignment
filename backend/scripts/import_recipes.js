@@ -30,7 +30,7 @@ db.once('open', async () => {
       await Recipe.deleteMany({});
       console.log('Cleared existing recipes');
 
-      // Clean and map recipes to required fields
+      // Clean and map recipes to ALL available fields
       const cleanedRecipes = recipes.map(recipe => ({
         cuisine: recipe.cuisine || null,
         title: recipe.title || null,
@@ -40,7 +40,13 @@ db.once('open', async () => {
         total_time: typeof recipe.total_time === 'number' && !isNaN(recipe.total_time) ? recipe.total_time : null,
         description: recipe.description || null,
         nutrients: recipe.nutrients || {},
-        serves: recipe.serves || null
+        serves: recipe.serves || null,
+        // Additional fields that were being ignored
+        continent: recipe.Contient || null,
+        country_state: recipe.Country_State || null,
+        url: recipe.URL || null,
+        ingredients: Array.isArray(recipe.ingredients) ? recipe.ingredients : [],
+        instructions: Array.isArray(recipe.instructions) ? recipe.instructions : []
       }));
 
       // Insert in batches to avoid memory issues
